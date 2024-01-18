@@ -1,5 +1,6 @@
 import ThemeProvider from "./theme-provider";
-import Navbar from "./defaultNavbar"
+import Navbar from "./defaultNavbar";
+import SignUpNavBar from "./signup-navbar";
 import { validatePhone } from "../../hooks/tools/useValidation";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
@@ -64,7 +65,7 @@ export function SignUp() {
   }
   return (
     <ThemeProvider>
-      <Navbar />
+      <SignUpNavBar />
       <section className="grid h-screen items-center p-8">
         <div className="text-center">
           <Typography variant="h3" color="blue-gray" className="mb-2">
