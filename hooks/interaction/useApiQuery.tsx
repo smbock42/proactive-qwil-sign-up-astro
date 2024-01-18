@@ -64,3 +64,10 @@ export const useApiQuery = ({
     mutate: mutate,
   };
 };
+
+//TODO: Fix this
+// export async function createQwilUser(data) {
+//   try {
+//     const response = await fetcher(''
+//   }
+// }
