@@ -46,10 +46,16 @@ export function SignUp() {
     }
 
     setErrors(newErrors);
-    console.log(errors);
     
     if (Object.keys(newErrors).length === 0) {
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+
+      
+      
+
       console.log("Form submitted");
+
     } else {
       console.log("Form not submitted");
     }
