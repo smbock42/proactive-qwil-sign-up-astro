@@ -75,7 +75,7 @@ export function SignUp() {
             Enter your email and password to register.
           </Typography>
           <form action="#" className="mx-auto max-w-[24rem] text-left" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6">
               <div>
                 <Input color="black" size="lg" label="First Name" type="text" name="firstname" onChange={handleChange} />
                 {errors.firstname && <Typography className="text-red-500">**{errors.firstname}**</Typography>}
