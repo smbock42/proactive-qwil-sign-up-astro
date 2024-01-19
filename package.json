@@ -28,7 +28,7 @@
     "Astro template",
     "Astro store template"
   ],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Sam Bock <sam@sambock.dev> (https://www.sambock.dev/)",
   "license": "MIT",
   "dependencies": {
     "@astrojs/react": "^3.0.2",
