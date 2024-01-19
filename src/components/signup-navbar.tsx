@@ -49,7 +49,7 @@ export default function SignUpNavBar() {
     <ThemeProvider>
       <Navbar className="absolute mx-auto left-0 right-0 top-3 max-w-screen-xl px-4 py-2 z-10">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <a href = "./">
+          <a href = "/">
             <img src={"/proactiveLogo.png"} alt="logo" className="max-h-14 w-auto" />
           </a>
           <div className="hidden gap-2 lg:flex">
@@ -58,7 +58,7 @@ export default function SignUpNavBar() {
                 Sign In
               </Button>
             </a>
-            <a href="./">
+            <a href="/">
               <Button size="sm" color="dark">
                 Sign Up
               </Button>
