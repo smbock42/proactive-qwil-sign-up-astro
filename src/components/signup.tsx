@@ -68,6 +68,9 @@ export function SignUp() {
       <SignUpNavBar />
       <section className="grid h-screen items-center p-8">
         <div className="text-center">
+          <Typography variant="h2" color="blue-gray" className="mb-2">
+            Whatever your needs are, ProactiveBLG is virtual-Ⓔ there to help
+          </Typography>
           <Typography variant="h3" color="blue-gray" className="mb-2">
             Join us today
           </Typography>
