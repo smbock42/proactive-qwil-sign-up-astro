@@ -1,5 +1,4 @@
-import useSWR, { Fetcher } from 'swr';
-import { apiCall } from '../../utils/apiCall';
+
 
 export enum ApiQueryType {
   GET = 'get',
@@ -66,14 +65,24 @@ export const useApiQuery = ({
 };
 
 export async function createUser(data) {
+  const myHeaders = new Headers();
+  myHeaders.append("X-SYS-API-KEY-SECRET", "{{X-SYS-API-KEY-SECRET}}");
+  myHeaders.append("X-SYS-API-KEY", "{{X-SYS-API-KEY}}");
+  myHeaders.append("Content-Type", "application/json");
+
+  data["send_invitation"] = true;
+  data["invitation_message"] = "Welcome to Qwil, {{first_name}}!"
+  console.log(data);
+  var raw = JSON.stringify(data);
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
   try {
-    const response = await fetch('https://api.example.com/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
+    const response = await fetch("https://web.qwil.io/entity-service/sys-api/entity-memberships/create/v2", requestOptions);
 
     if (!response.ok) {
       throw new Error('API request failed');
