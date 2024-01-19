@@ -7,10 +7,10 @@ import { Typography, Input, Button } from "@material-tailwind/react";
 
 export function SignUp() {
   const [form, setForm] = useState({
-    firstname: "",
-    lastname: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    phone: "",
+    primary_phone_number: "",
     password: "",
     confirmPassword: "",
   });
@@ -33,7 +33,18 @@ export function SignUp() {
         newErrors[key] = `${key} is required`;
       }
     });
-
+    if (form.first_name.length > 500) {
+      newErrors.first_name = "First name must be less than 500 characters";
+    }
+    if (form.last_name.length > 500) {
+      newErrors.last_name = "Last name must be less than 500 characters";
+    }
+    if (form.email.length > 320) {
+      newErrors.email = "Email must be less than 320 characters";
+    }
+    if (form.primary_phone_number.length > 500) {
+      newErrors.primary_phone_number = "Phone number must be less than 500 characters";
+    }
     if (form.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters long";
     }
@@ -42,8 +53,8 @@ export function SignUp() {
       newErrors.confirmPassword = "Passwords do not match";
     }
 
-    if (!validatePhone(form.phone)) {
-      newErrors.phone = "Phone number is invalid";
+    if (!validatePhone(form.primary_phone_number)) {
+      newErrors.primary_phone_number = "Phone number is invalid";
     }
 
     setErrors(newErrors);
@@ -80,20 +91,20 @@ export function SignUp() {
           <form action="#" className="mx-auto max-w-[24rem] text-left" onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <Input color="black" size="lg" label="First Name" type="text" name="firstname" onChange={handleChange} />
-                {errors.firstname && <Typography className="text-red-500">**{errors.firstname}**</Typography>}
+                <Input color="black" size="lg" label="First Name" type="text" name="first_name" onChange={handleChange} />
+                {errors.first_name && <Typography className="text-red-500">**{errors.first_name}**</Typography>}
               </div>
               <div>
-                <Input color="black" size="lg" label="Last Name" type="text" name="lastname" onChange={handleChange}/>
-                {errors.lastname && <Typography className="text-red-500">**{errors.lastname}**</Typography>}
+                <Input color="black" size="lg" label="Last Name" type="text" name="last_name" onChange={handleChange}/>
+                {errors.last_name && <Typography className="text-red-500">**{errors.last_name}**</Typography>}
               </div>
               <div>
                 <Input color="black" size="lg" label="Email" type="email" name="email" onChange={handleChange}/>
                 {errors.email && <Typography className="text-red-500">**{errors.email}**</Typography>}
               </div>
               <div>
-                <Input color="black" size="lg" label="Phone Number" type="tel" name="phone" onChange={handleChange}/>
-                {errors.phone && <Typography className="text-red-500">**{errors.phone}**</Typography>}
+                <Input color="black" size="lg" label="Phone Number" type="tel" name="primary_phone_number" onChange={handleChange}/>
+                {errors.primary_phone_number && <Typography className="text-red-500">**{errors.primary_phone_number}**</Typography>}
               </div>
               <div>
                 <Input color="black" size="lg" label="Password" type="password" name="password" onChange={handleChange}/>
