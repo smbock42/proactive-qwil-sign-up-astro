@@ -65,9 +65,24 @@ export const useApiQuery = ({
   };
 };
 
-//TODO: Fix this
-// export async function createQwilUser(data) {
-//   try {
-//     const response = await fetcher(''
-//   }
-// }
+export async function createUser(data) {
+  try {
+    const response = await fetch('https://api.example.com/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error('API request failed');
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    // Handle error...
+    throw error;
+  }
+}
