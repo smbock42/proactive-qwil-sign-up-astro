@@ -1,9 +1,10 @@
 import ThemeProvider from "./theme-provider";
-import Navbar from "./defaultNavbar";
 import SignUpNavBar from "./signup-navbar";
 import { validatePhone } from "../../hooks/tools/useValidation";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
+import { createUser } from "../../hooks/interaction/useApiQuery";
+
 
 export function SignUp() {
   const [form, setForm] = useState({
@@ -64,7 +65,7 @@ export function SignUp() {
       const data = Object.fromEntries(formData);
 
       
-      
+      createUser(data);
 
       console.log("Form submitted");
 
