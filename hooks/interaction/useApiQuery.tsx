@@ -66,12 +66,12 @@ export const useApiQuery = ({
 
 export async function createUser(data) {
   const myHeaders = new Headers();
-  myHeaders.append("X-SYS-API-KEY-SECRET", "{{X-SYS-API-KEY-SECRET}}");
-  myHeaders.append("X-SYS-API-KEY", "{{X-SYS-API-KEY}}");
+  myHeaders.append("X-SYS-API-KEY-SECRET", import.meta.env.SYSTEM_API_KEY_SECRET);
+  myHeaders.append("X-SYS-API-KEY", import.meta.env.SYSTEM_API_KEY_ID);
   myHeaders.append("Content-Type", "application/json");
-
+  
   data["send_invitation"] = true;
-  data["invitation_message"] = "Welcome to Qwil, {{first_name}}!"
+  data["invitation_message"] = `Welcome to Qwil, ${data.first_name}!`
   console.log(data);
   var raw = JSON.stringify(data);
   const requestOptions = {
@@ -82,7 +82,7 @@ export async function createUser(data) {
   };
 
   try {
-    const response = await fetch("https://web.qwil.io/entity-service/sys-api/entity-memberships/create/v2", requestOptions);
+    const response = await fetch("https://web.qwil.io/entity-service/sys-api/entity-memberships/create", requestOptions);
 
     if (!response.ok) {
       throw new Error('API request failed');
